@@ -1,17 +1,6 @@
 import express from 'express'
+import { loginController } from '~/controllers/users.controllers'
+import { loginValidator } from '~/middlewares/users.middlewares'
 const router = express.Router()
-router.use((req, res, next) => {
-  console.log('Time', Date.now())
-  next()
-})
-router.get('/tweets', (req, res) => {
-  res.json({
-    data: [
-      {
-        id: 1,
-        text: 'Hello'
-      }
-    ]
-  })
-})
+router.post('/login', loginValidator, loginController)
 export default router
