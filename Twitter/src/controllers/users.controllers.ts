@@ -18,7 +18,7 @@ export const registerController = async (req: Request, res: Response) => {
   try {
     const result = await usersService.register({ email, password })
     return res.json({
-      message: 'Register success', 
+      message: 'Register success',
       result
     })
   } catch (error) {
