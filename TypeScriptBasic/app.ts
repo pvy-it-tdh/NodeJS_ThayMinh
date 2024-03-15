@@ -109,5 +109,5 @@ let a=Sizes.S // a lúc này có giá trị bằng S
 
 class Person{
     constructor(public name:string,public age:number){}
-    
+     
 }
