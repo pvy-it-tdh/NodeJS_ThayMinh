@@ -1,7 +1,6 @@
 import { ObjectId } from 'mongodb'
 import { UserVerifyStatus } from '~/constants/enum'
 
-
 interface UserType {
   _id?: ObjectId
   name: string
