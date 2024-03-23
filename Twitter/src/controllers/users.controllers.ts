@@ -20,7 +20,6 @@ export const registerController = async (
   res: Response,
   next: NextFunction
 ) => {
-  // throw new Error('Lỗi rồi')
   const result = await usersService.register(req.body)
   return res.json({
     message: 'Register success',
