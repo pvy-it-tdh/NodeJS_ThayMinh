@@ -1,7 +1,8 @@
 import express from 'express'
-import { register } from 'module'
+import { register, wrap } from 'module'
 import { loginController, registerController } from '~/controllers/users.controllers'
 import { loginValidator, registerValidator } from '~/middlewares/users.middlewares'
+import { wrapAsync } from '~/utils/handles'
 import { validate } from '~/utils/validation'
 const router = express.Router()
 router.post('/login', loginValidator, loginController)
@@ -12,5 +13,5 @@ router.post('/login', loginValidator, loginController)
  * Body{ name: string, email: string, pasword: string,confirm _password: string,
  * date of birth: ISO8601}
  */
-router.post('/register', registerValidator, registerController)
+router.post('/register', registerValidator,wrapAsync(registerController))
 export default router
