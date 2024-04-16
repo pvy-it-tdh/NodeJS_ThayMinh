@@ -22,7 +22,7 @@ export const validate = (validation: RunnableValidationChains<ValidationChain>) 
       }
       entityError.errors[key] = errorObject[key]
     }
-    console.log(errorObject)
+    // console.log(errorObject)
     // Nếu không có lỗi thì next
 
     next(entityError)
