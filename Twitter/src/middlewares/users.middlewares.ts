@@ -74,11 +74,12 @@ export const registerValidator = validate(
       },
       trim: true,
       custom: {
-        options: async (value) => {
-          const user = await databaseService.user.findOne({email: value})
-          if (user===null) {
+        options: async (value, { req }) => {
+          const user = await databaseService.user.findOne({ email: value })
+          if (user === null) {
             throw new Error(USERS_MESSAGES.EMAIL_ALREADY_EXISTS)
           }
+          req.user = user
           return true
         }
       }
