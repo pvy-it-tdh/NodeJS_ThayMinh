@@ -8,9 +8,9 @@ import User from '~/models/schemas/User.schema'
 import databaseService from '~/services/database.services'
 import usersService from '~/services/user.services'
 export const loginController = async (req: Request, res: Response) => {
-  const user =  req.user as User 
-  const user_id=user._id as ObjectId
-  const result= await  usersService.login(user_id.toString())
+  const user = req.user as User
+  const user_id = user._id as ObjectId
+  const result = await usersService.login(user_id.toString())
   return res.json({
     message: USERS_MESSAGES.LOGIN_SUCCESS,
     result

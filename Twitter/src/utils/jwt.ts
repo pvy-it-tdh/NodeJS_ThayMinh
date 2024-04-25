@@ -1,8 +1,9 @@
 import { rejects } from 'assert'
 import { error } from 'console'
+import { config } from 'dotenv'
 import jwt, { SignOptions } from 'jsonwebtoken'
 import { resolve } from 'path'
-
+config()
 export const signToken = ({
   payload,
   privateKey = process.env.JWT_SECRET as string,
