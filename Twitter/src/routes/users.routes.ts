@@ -1,7 +1,7 @@
 import express from 'express'
 import { register, wrap } from 'module'
 import { loginController, registerController } from '~/controllers/users.controllers'
-import { accessTokenValidator, loginValidator, registerValidator } from '~/middlewares/users.middlewares'
+import { accessTokenValidator, loginValidator, refreshTokenValidator, registerValidator } from '~/middlewares/users.middlewares'
 import { wrapRequestHandler } from '~/utils/handles'
 import { validate } from '~/utils/validation'
 const router = express.Router()
@@ -29,6 +29,7 @@ router.post('/register', registerValidator, wrapRequestHandler(registerControlle
 router.post(
   '/logout',
   accessTokenValidator,
+  refreshTokenValidator,
   wrapRequestHandler((req, res) => {
     res.json({ message: 'logout successfully' })
   })
